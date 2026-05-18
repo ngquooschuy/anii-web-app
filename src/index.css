@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #F6F1EB;
+  --color-beige: #D8C3A5;
+  --color-bluegrey: #8FA3A8;
+  --color-dark: #2F2F2F;
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Playfair Display", serif;
+}
+
+/* GPU-accelerated film scroll animations */
+@keyframes film-scroll-up {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+
+@keyframes film-scroll-down {
+  from { transform: translateY(-50%); }
+  to { transform: translateY(0); }
+}
+
+.film-scroll {
+  display: flex;
+  flex-direction: column;
+  animation: film-scroll-up linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.film-scroll-reverse {
+  display: flex;
+  flex-direction: column;
+  animation: film-scroll-down linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}

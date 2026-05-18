@@ -1,0 +1,6 @@
+{
+  "name": "1 Year Together RSVP",
+  "description": "A modern, delicate glassmorphism RSVP landing page for a 1-year anniversary celebration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
