@@ -103,7 +103,7 @@ export default function App() {
           });
         }
       })
-      .catch(() => {});
+      .catch(() => { });
   }, []);
 
   const handleNoHover = () => {
@@ -160,7 +160,7 @@ export default function App() {
   const handleClosePopup = () => {
     setShowPopup(false);
     if (audioRef.current) {
-      audioRef.current.play().catch(() => {});
+      audioRef.current.play().catch(() => { });
     }
   };
 
@@ -168,16 +168,16 @@ export default function App() {
     <div className="relative w-full h-screen min-h-[600px] overflow-hidden bg-[#1D1B19] font-sans flex items-center justify-center">
       {/* Background Film Roll */}
       {columns.length > 0 && (
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350vw] sm:w-[300vw] lg:w-[250vw] min-w-[3000px] h-[300vh] sm:h-[250vh] min-h-[2000px] z-0 flex justify-center gap-[clamp(6px,1.5vw,20px)] -rotate-12 pointer-events-none opacity-35">
-        {columns.map((col, i) => (
-          <FilmColumn
-            key={i}
-            images={col}
-            duration={35 + i * 3}
-            reverse={i % 2 === 1}
-          />
-        ))}
-      </div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350vw] sm:w-[300vw] lg:w-[250vw] min-w-[3000px] h-[300vh] sm:h-[250vh] min-h-[2000px] z-0 flex justify-center gap-[clamp(6px,1.5vw,20px)] -rotate-12 pointer-events-none opacity-35">
+          {columns.map((col, i) => (
+            <FilmColumn
+              key={i}
+              images={col}
+              duration={35 + i * 3}
+              reverse={i % 2 === 1}
+            />
+          ))}
+        </div>
       )}
 
       {/* Overlay: blur nhẹ & gradient dark overlay */}
@@ -189,176 +189,175 @@ export default function App() {
       {/* Content wrapper */}
       {showPopup && (
         <div className="relative z-20 w-[560px] max-w-[calc(100vw-32px)] mx-4 px-2">
-        <AnimatePresence mode="wait">
-          {view === 'invitation' ? (
-            <motion.div
-              key="invitation"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="bg-white/45 backdrop-blur-[20px] border border-white/30 rounded-[32px] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)] p-8 sm:p-10 md:p-12 text-center relative overflow-hidden"
-            >
+          <AnimatePresence mode="wait">
+            {view === 'invitation' ? (
               <motion.div
-                initial={{ opacity: 0, scaleX: 0 }}
-                animate={{ opacity: 1, scaleX: 1 }}
-                transition={{ delay: 0.4, duration: 1 }}
-                className="mb-8 flex justify-center origin-center"
-              >
-                <div className="w-12 h-[2px] bg-beige rounded-full"></div>
-              </motion.div>
-
-              <motion.h1
-                initial={{ opacity: 0, y: 10 }}
+                key="invitation"
+                initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="font-display text-3xl sm:text-4xl font-semibold text-dark mb-6 tracking-tight"
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="bg-white/45 backdrop-blur-[20px] border border-white/30 rounded-[32px] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)] p-8 sm:p-10 md:p-12 text-center relative overflow-hidden"
               >
-                BÁO CÁO CÔNG TÁC<br />CHUẨN BỊ CHIẾN DỊCH
-              </motion.h1>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className="text-dark/90 text-base md:text-[17px] font-light leading-relaxed text-left space-y-5 px-1 sm:px-2"
-              >
-                <p>
-                  Kính mời <strong className="font-semibold">Đồng chí mdukiu</strong> tham gia buổi tiệc kỉ niệm 1 năm yêu nhau.<br />
-                  <strong className="font-semibold mt-2 block">Kế hoạch tác chiến buổi tối ngày mai như sau:</strong>
-                </p>
-                <ul className="space-y-3 ml-1 border-l-2 border-beige/60 pl-4 py-1 text-left">
-                  <li><span className="font-semibold opacity-70 uppercase tracking-widest text-[11px]">Thời gian</span><br />7h00, Ngày 20/05/2025</li>
-                  <li><span className="font-semibold opacity-70 uppercase tracking-widest text-[11px]">Địa chỉ</span><br />Hồ Tây</li>
-                  <li><span className="font-semibold opacity-70 uppercase tracking-widest text-[11px]">Phương tiện</span><br />Tôi đến đón đồng chí vào lúc 6h15 bằng xe máy</li>
-                  <li><span className="font-semibold opacity-70 uppercase tracking-widest text-[11px]">Về phía bản thân</span><br />Tôi sẽ chủ động xin phép Thủ trưởng đơn vị cho lui quân sớm để thực hiện công tác chuẩn bị hậu cần, rà soát lại tư trang, vũ khí trang bị đảm bảo tác phong chính quy, hiện đại.</li>
-                  <li><span className="font-semibold opacity-70 uppercase tracking-widest text-[11px]">Về phía đồng chí</span><br />Mong đồng chí tập trung tối đa, khẩn trương thu xếp thời gian, hoàn thành công tác hậu cần để kịp thời cơ động.</li>
-                </ul>
-                <p className="font-medium text-dark/90 mt-4 leading-relaxed text-sm md:text-base">
-                  Đề nghị đồng chí nghiêm chỉnh chấp hành, bảo đảm thời gian xuất phát chính xác đến từng phút để Chiến dịch đạt thắng lợi toàn diện!
-                </p>
-                <p className="font-display italic font-semibold text-right text-xl text-beige mt-4">
-                  Cảm ơn đồng chí.
-                </p>
-              </motion.div>
-
-              <motion.button
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 }}
-                onClick={() => setView('rsvp')}
-                className="mt-8 w-full bg-bluegrey/20 hover:bg-bluegrey/30 border border-bluegrey/30 text-dark rounded-2xl px-5 py-4 font-medium transition-all duration-300 focus:outline-none active:scale-[0.98]"
-              >
-                Tiếp tục
-              </motion.button>
-            </motion.div>
-          ) : (
-            <motion.div
-              key="rsvp"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="bg-white/45 backdrop-blur-[20px] border border-white/30 rounded-[32px] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)] p-10 md:p-12 text-center relative"
-            >
-              {isSubmitted ? (
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="py-12 flex flex-col items-center justify-center gap-4"
+                  initial={{ opacity: 0, scaleX: 0 }}
+                  animate={{ opacity: 1, scaleX: 1 }}
+                  transition={{ delay: 0.4, duration: 1 }}
+                  className="mb-8 flex justify-center origin-center"
                 >
-                  <div className="w-16 h-16 bg-cream/80 backdrop-blur-md rounded-full flex items-center justify-center mb-2 shadow-sm text-bluegrey">
-                    <Heart className="w-8 h-8 fill-current" />
-                  </div>
-                  <h2 className="font-display text-2xl font-medium text-dark tracking-wide">
-                    Love You
-                  </h2>
-                  <p className="text-dark/70 font-light text-base max-w-[240px]">
-                    Hẹ hẹ hẹ
-                  </p>
-                  <motion.button
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 }}
-                    onClick={handleClosePopup}
-                    className="mt-4 bg-bluegrey hover:bg-[#7D9196] text-white rounded-2xl px-6 py-3 font-medium transition-all duration-300 shadow-lg shadow-bluegrey/20 focus:outline-none active:scale-[0.98]"
-                  >
-                    Đóng
-                  </motion.button>
+                  <div className="w-12 h-[2px] bg-beige rounded-full"></div>
                 </motion.div>
-              ) : (
-                <>
-                  {/* Decorative Line */}
+
+                <motion.h1
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="font-display text-3xl sm:text-4xl font-semibold text-dark mb-6 tracking-tight"
+                >
+                  BÁO CÁO CÔNG TÁC<br />CHUẨN BỊ CHIẾN DỊCH
+                </motion.h1>
+
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                  className="text-dark/90 text-base md:text-[17px] font-light leading-relaxed text-left space-y-5 px-1 sm:px-2"
+                >
+                  <p>
+                    Kính mời <strong className="font-semibold">Đồng chí mdukiu</strong> tham gia buổi tiệc kỉ niệm 1 năm yêu nhau.<br />
+                    <strong className="font-semibold mt-2 block">Kế hoạch tác chiến buổi tối ngày nay như sau:</strong>
+                  </p>
+                  <ul className="space-y-3 ml-1 border-l-2 border-beige/60 pl-4 py-1 text-left">
+                    <li><span className="font-semibold opacity-70 uppercase tracking-widest text-[11px]">Thời gian</span><br />19h00, Ngày 20/05/2025</li>
+                    <li><span className="font-semibold opacity-70 uppercase tracking-widest text-[11px]">Địa chỉ</span><br />La Libra Steak House</li>
+                    <li><span className="font-semibold opacity-70 uppercase tracking-widest text-[11px]">Về phía bản thân</span><br />
+                      Tôi sẽ chủ động xin phép về sớm để thực hiện công tác chuẩn bị hậu cần, rà soát lại tư trang,
+                      vũ khí trang bị đảm bảo tác phong chính quy, hiện đại.</li>
+                    <li><span className="font-semibold opacity-70 uppercase tracking-widest text-[11px]">Về phía đồng chí</span><br />
+                      Mong đồng chí tập trung tối đa, khẩn trương thu xếp thời gian, hoàn thành công tác hậu cần để kịp thời cơ động.</li>
+                  </ul>
+                  <p className="font-display italic font-semibold text-right text-xl text-beige mt-4">
+                    Cảm ơn đồng chí.
+                  </p>
+                </motion.div>
+
+                <motion.button
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.7 }}
+                  onClick={() => setView('rsvp')}
+                  className="mt-8 w-full bg-bluegrey/20 hover:bg-bluegrey/30 border border-bluegrey/30 text-dark rounded-2xl px-5 py-4 font-medium transition-all duration-300 focus:outline-none active:scale-[0.98]"
+                >
+                  Tiếp tục
+                </motion.button>
+              </motion.div>
+            ) : (
+              <motion.div
+                key="rsvp"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="bg-white/45 backdrop-blur-[20px] border border-white/30 rounded-[32px] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)] p-10 md:p-12 text-center relative"
+              >
+                {isSubmitted ? (
                   <motion.div
-                    initial={{ opacity: 0, scaleX: 0 }}
-                    animate={{ opacity: 1, scaleX: 1 }}
-                    transition={{ delay: 0.4, duration: 1 }}
-                    className="mb-6 flex justify-center origin-center"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="py-12 flex flex-col items-center justify-center gap-4"
                   >
-                    <div className="w-12 h-[2px] bg-beige rounded-full mb-2"></div>
-                  </motion.div>
-
-                  <motion.h1
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 }}
-                    className="font-display italic text-4xl sm:text-5xl font-semibold text-dark mb-4 tracking-tight"
-                  >
-                    1 Year Together
-                  </motion.h1>
-
-                  <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.4 }}
-                    className="text-dark/80 text-base font-light mb-10 leading-relaxed max-w-[320px] mx-auto px-2"
-                  >
-                    Mời đồng chí xác nhận tham gia buổi hẹn hò. Đố đồng chí bấm được vào KHÔNG THAM GIA LUÔN.
-                  </motion.p>
-
-                  <div className="flex flex-col gap-4 mt-8 relative z-20">
+                    <div className="w-16 h-16 bg-cream/80 backdrop-blur-md rounded-full flex items-center justify-center mb-2 shadow-sm text-bluegrey">
+                      <Heart className="w-8 h-8 fill-current" />
+                    </div>
+                    <h2 className="font-display text-2xl font-medium text-dark tracking-wide">
+                      Love You
+                    </h2>
+                    <p className="text-dark/70 font-light text-base max-w-[240px]">
+                      Hẹ hẹ hẹ
+                    </p>
                     <motion.button
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.5 }}
-                      onClick={handleSubmit}
-                      className="w-full bg-bluegrey hover:bg-[#7D9196] text-white rounded-2xl px-6 py-4 font-medium transition-all duration-300 shadow-lg shadow-bluegrey/20 focus:outline-none active:scale-[0.98]"
+                      transition={{ delay: 0.3 }}
+                      onClick={handleClosePopup}
+                      className="mt-4 bg-bluegrey hover:bg-[#7D9196] text-white rounded-2xl px-6 py-3 font-medium transition-all duration-300 shadow-lg shadow-bluegrey/20 focus:outline-none active:scale-[0.98]"
                     >
-                      Xác nhận tham gia
+                      Đóng
                     </motion.button>
-
-                    <motion.button
-                      ref={noBtnRef}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, x: noPosition.x, y: noPosition.y }}
-                      transition={{
-                        delay: 0.6,
-                        x: { type: "spring", stiffness: 200, damping: 15 },
-                        y: { type: "spring", stiffness: 200, damping: 15 }
-                      }}
-                      onHoverStart={handleNoHover}
-                      onClick={handleNoHover}
-                      className="w-full bg-white/40 border border-white/30 text-dark/70 hover:text-dark rounded-2xl px-6 py-4 font-medium backdrop-blur-sm transition-colors duration-300 focus:outline-none"
-                      style={{ zIndex: 10 }}
-                    >
-                      Không tham gia
-                    </motion.button>
-                  </div>
-
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.8 }}
-                    className="mt-10 pt-8 border-t border-white/20"
-                  >
-                    <p className="font-display italic text-beige text-lg font-semibold">
-                     From liemqhuy with love.
-                    </p>
                   </motion.div>
-                </>
-              )}
-            </motion.div>
-          )}
-        </AnimatePresence>
+                ) : (
+                  <>
+                    {/* Decorative Line */}
+                    <motion.div
+                      initial={{ opacity: 0, scaleX: 0 }}
+                      animate={{ opacity: 1, scaleX: 1 }}
+                      transition={{ delay: 0.4, duration: 1 }}
+                      className="mb-6 flex justify-center origin-center"
+                    >
+                      <div className="w-12 h-[2px] bg-beige rounded-full mb-2"></div>
+                    </motion.div>
+
+                    <motion.h1
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2 }}
+                      className="font-display italic text-4xl sm:text-5xl font-semibold text-dark mb-4 tracking-tight"
+                    >
+                      1 Year Together
+                    </motion.h1>
+
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.4 }}
+                      className="text-dark/80 text-base font-light mb-10 leading-relaxed max-w-[320px] mx-auto px-2"
+                    >
+                      Mời đồng chí xác nhận tham gia buổi hẹn hò. Đố đồng chí bấm được vào KHÔNG THAM GIA LUÔN.
+                    </motion.p>
+
+                    <div className="flex flex-col gap-4 mt-8 relative z-20">
+                      <motion.button
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5 }}
+                        onClick={handleSubmit}
+                        className="w-full bg-bluegrey hover:bg-[#7D9196] text-white rounded-2xl px-6 py-4 font-medium transition-all duration-300 shadow-lg shadow-bluegrey/20 focus:outline-none active:scale-[0.98]"
+                      >
+                        Xác nhận tham gia
+                      </motion.button>
+
+                      <motion.button
+                        ref={noBtnRef}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, x: noPosition.x, y: noPosition.y }}
+                        transition={{
+                          delay: 0.6,
+                          x: { type: "spring", stiffness: 200, damping: 15 },
+                          y: { type: "spring", stiffness: 200, damping: 15 }
+                        }}
+                        onHoverStart={handleNoHover}
+                        onClick={handleNoHover}
+                        className="w-full bg-white/40 border border-white/30 text-dark/70 hover:text-dark rounded-2xl px-6 py-4 font-medium backdrop-blur-sm transition-colors duration-300 focus:outline-none"
+                        style={{ zIndex: 10 }}
+                      >
+                        Không tham gia
+                      </motion.button>
+                    </div>
+
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.8 }}
+                      className="mt-10 pt-8 border-t border-white/20"
+                    >
+                      <p className="font-display italic text-beige text-lg font-semibold">
+                        From liemqhuy with love.
+                      </p>
+                    </motion.div>
+                  </>
+                )}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       )}
 
